@@ -1,4 +1,4 @@
-EXP NO:11 C PROGRAM TO DISPLAY STACK ELEMENTS USING AN ARRAY.
+## EXP NO:11 C PROGRAM TO DISPLAY STACK ELEMENTS USING AN ARRAY.
 
 Aim:
 To write a C program to display stack elements using an array.
@@ -13,19 +13,54 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+#define MAX 5
+
+int main()
+{
+    int stack[MAX];
+    int top, i;
+
+    printf("Enter the number of stack elements: ");
+    scanf("%d", &top);
+
+    if (top > MAX)
+    {
+        printf("Stack size exceeded.");
+        return 0;
+    }
+
+    printf("Enter the stack elements:\n");
+
+    for (i = 0; i < top; i++)
+    {
+        scanf("%d", &stack[i]);
+    }
+
+    top = top - 1;
+
+    printf("\nStack elements are:\n");
+
+    for (i = top; i >= 0; i--)
+    {
+        printf("%d\n", stack[i]);
+    }
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
-
-
+<img width="922" height="707" alt="image" src="https://github.com/user-attachments/assets/39a219da-d9ae-4a40-86c5-07e489da27cd" />
 
 Result:
 Thus, the program to display stack elements using an array is verified successfully.
  
 
-EXP NO:12  PROGRAM TO PUSH THE GIVEN ELEMENT IN TO A STACK USING ARRAY.
+## EXP NO:12  PROGRAM TO PUSH THE GIVEN ELEMENT IN TO A STACK USING ARRAY.
 Aim:
 To create a C program to push the given element in to a stack using array.
 Algorithm:
@@ -36,21 +71,53 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+#define MAX 5
+
+int main()
+{
+    float stack[MAX];
+    int top = -1;
+    float value;
+    int i;
+
+    printf("Enter the element to push: ");
+    scanf("%f", &value);
+
+    if (top == MAX - 1)
+    {
+        printf("Stack Overflow");
+    }
+    else
+    {
+        top++;
+        stack[top] = value;
+
+        printf("\nElement %.2f pushed into stack.\n", value);
+
+        printf("Stack elements are:\n");
+
+        for (i = top; i >= 0; i--)
+        {
+            printf("%.2f\n", stack[i]);
+        }
+    }
+
+    return 0;
+}
+
+```
 
 Output:
 
-//paste your output here
-
-
-
+<img width="922" height="507" alt="image" src="https://github.com/user-attachments/assets/143984a5-ceda-44bd-9eeb-3336e1183696" />
 
 Result:
 Thus, the program to push the given element in to a stack using array is verified successfully
 
-
- 
-EXP NO:13 C PROGRAM TO DISPLAY QUEUE ELEMENTS USING ARRAY.
+## EXP NO:13 C PROGRAM TO DISPLAY QUEUE ELEMENTS USING ARRAY.
 Aim:
 To write a C program to display queue elements using array
 
@@ -62,19 +129,54 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
 
+#define MAX 5
+
+int main()
+{
+    int queue[MAX];
+    int front = 0, rear, n, i;
+
+    printf("Enter the number of queue elements: ");
+    scanf("%d", &n);
+
+    if (n > MAX)
+    {
+        printf("Queue size exceeded.");
+        return 0;
+    }
+
+    rear = n - 1;
+
+    printf("Enter the queue elements:\n");
+
+    for (i = front; i <= rear; i++)
+    {
+        scanf("%d", &queue[i]);
+    }
+
+    printf("\nQueue elements are:\n");
+
+    for (i = front; i <= rear; i++)
+    {
+        printf("%d ", queue[i]);
+    }
+
+    return 0;
+}
+```
 Output:
 
-//paste your output here
-
+<img width="925" height="511" alt="image" src="https://github.com/user-attachments/assets/8252a9c2-8b76-434c-b460-945416858106" />
 
 Result:
 Thus, the program to display queue elements using array is verified successfully.
 
 
  
-EXP NO:14 C PROGRAM TO INSERT ELEMENTS IN QUEUE USING ARRAY.
+## EXP NO:14 C PROGRAM TO INSERT ELEMENTS IN QUEUE USING ARRAY.
 Aim:
 To write a C program to insert elements in queue using array.
 
@@ -86,22 +188,52 @@ Algorithm:
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+#define MAX 5
+
+int main()
+{
+    float queue[MAX];
+    int front = 0, rear = -1;
+    float value;
+    int i;
+
+    printf("Enter the element to insert: ");
+    scanf("%f", &value);
+
+    if (rear == MAX - 1)
+    {
+        printf("Queue Overflow");
+    }
+    else
+    {
+        rear++;
+        queue[rear] = value;
+
+        printf("\nElement %.2f inserted into queue.\n", value);
+
+        printf("Queue elements are:\n");
+
+        for (i = front; i <= rear; i++)
+        {
+            printf("%.2f ", queue[i]);
+        }
+    }
+
+    return 0;
+}
+```
 
 Output:
 
-//paste your output here
+<img width="930" height="457" alt="image" src="https://github.com/user-attachments/assets/e1d5f4f0-3dc9-4993-8856-08f342e5c213" />
 
 Result:
 Thus, the program to insert elements in queue using array is verified successfully.
-
-
-
  
-EXP NO:15 C FUNCTION TO DELETE ELEMENTS IN QUEUE USING ARRAY
-
-
-
+## EXP NO:15 C FUNCTION TO DELETE ELEMENTS IN QUEUE USING ARRAY
 Aim:
 
 To create a function in C that deletes an element from a queue implemented using an array.
@@ -121,12 +253,77 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+
+#define MAX 5
+
+int queue[MAX];
+int front = 0;
+int rear = 3;
+
+void deleteElement()
+{
+    if (front == -1 || front > rear)
+    {
+        printf("Queue is empty.\n");
+    }
+    else
+    {
+        printf("Deleted element: %d\n", queue[front]);
+
+        front++;
+
+        if (front > rear)
+        {
+            front = -1;
+            rear = -1;
+        }
+    }
+}
+
+int main()
+{
+    int i;
+
+    queue[0] = 10;
+    queue[1] = 20;
+    queue[2] = 30;
+    queue[3] = 40;
+
+    printf("Queue elements before deletion:\n");
+
+    for (i = front; i <= rear; i++)
+    {
+        printf("%d ", queue[i]);
+    }
+
+    printf("\n\n");
+
+    deleteElement();
+
+    printf("\nQueue elements after deletion:\n");
+
+    if (front == -1)
+    {
+        printf("Queue is empty.");
+    }
+    else
+    {
+        for (i = front; i <= rear; i++)
+        {
+            printf("%d ", queue[i]);
+        }
+    }
+
+    return 0;
+}
+
+```
 
 Output:
 
-//paste your output here
-
+<img width="927" height="508" alt="image" src="https://github.com/user-attachments/assets/c05c0916-dc0a-47a2-9c24-5fd41fae78e7" />
 
 Result:
 Thus, the function that deletes an element from a queue implemented using an array is verified successfully.
